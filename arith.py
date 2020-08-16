@@ -110,20 +110,19 @@ def opd_opr_check(tokens):
 def calc(expr):
     """To determine validity of an expression. If valid, expression will be evaluated"""
 
-    while True:
-        # tokenize expression
-        tokens = tokenize(expr)
+    # tokenize expression
+    tokens = tokenize(expr)
 
-        # check if parentheses are balanced
-        balanced = parentheses_balance_check(tokens)
-        if balanced is None:
-            continue
+    # check if parentheses are balanced
+    balanced = parentheses_balance_check(tokens)
+    if balanced is None:
+        return 'unbalance parentheses'
 
-        # check validity of operands and operators
-        has_error = opd_opr_check(tokens)
-        if has_error is True:
-            continue
+    # check validity of operands and operators
+    has_error = opd_opr_check(tokens)
+    if has_error is True:
+        return 'invalid character'
 
-        # expression is valid. evaluate expression
-        ans = eval(expr)
-        return ans
+    # expression is valid. evaluate expression
+    ans = eval(expr)
+    return ans
