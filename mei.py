@@ -1,3 +1,6 @@
+import arith
+
+
 def mei():
     '''
     Basic command line interphase.
@@ -11,7 +14,7 @@ def mei():
             print('Existed 🌈 mei')
             break
         else:
-            print(text)
+            print(arith.calc(text))
 
 
 if __name__ == '__main__':
